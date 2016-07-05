@@ -31,7 +31,5 @@ except ImportError:
 	pass
 
 # import any pure python here
-
-
-
+from TFModel import TFModel
 #

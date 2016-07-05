@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<block>
+	<name>TFModel</name>
+	<key>inspector_TFModel</key>
+	<category>inspector</category>
+	<import>import inspector</import>
+	<make>inspector.TFModel($type.typ,$vlen,$graphfile,$itensor,$otensor)</make>
+
+	<param>
+		<name>Input Type</name>
+		<key>type</key>
+		<type>enum</type>
+		<!--<option>
+			<name>Complex</name>
+			<key>complex</key>
+			<opt>size:gr.sizeof_gr_complex</opt>
+			<opt>typ:c</opt>
+		</option>-->
+		<option>
+			<name>Float</name>
+			<key>float</key>
+			<opt>size:gr.sizeof_float</opt>
+			<opt>typ:"float32"</opt>
+		</option>
+		<option>
+			<name>Int</name>
+			<key>int</key>
+			<opt>size:gr.sizeof_int</opt>
+			<opt>typ:"int32"</opt>
+		</option>
+		<option>
+			<name>Short</name>
+			<key>short</key>
+			<opt>size:gr.sizeof_short</opt>
+			<opt>typ:"int16"</opt>
+		</option>
+		<option>
+			<name>Byte</name>
+			<key>byte</key>
+			<opt>size:gr.sizeof_char</opt>
+			<opt>typ:"int8"</opt>
+		</option>
+	</param>
+	<param>
+		<name>Vec Length</name>
+		<key>vlen</key>
+		<value>1</value>
+		<type>int</type>
+	</param>
+	<param>
+                <name>Graph file</name>
+                <key>graphfile</key>
+                <value></value>
+                <type>string</type>
+	</param>
+        <param>
+                <name>Input Tensor</name>
+                <key>itensor</key>
+                <value>inp</value>
+                <type>string</type>
+        </param>
+        <param>
+                <name>Output Tensor</name>
+                <key>otensor</key>
+                <value>out</value>
+                <type>string</type>
+        </param>
+
+	<sink>
+    		<name>in</name>
+		<type>$type</type>
+		<vlen>$vlen</vlen>  
+	</sink>
+ 	<source>
+    		<name>classification</name>
+ 		<type>message</type>
+  	</source>
+</block>
